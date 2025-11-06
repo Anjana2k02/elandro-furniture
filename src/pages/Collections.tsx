@@ -1,77 +1,71 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { Armchair, Bed, Home, Briefcase, UtensilsCrossed, BookOpen, Lamp, Sofa, Shield } from 'lucide-react';
 
 export const Collections = () => {
   const collections = [
     {
-      name: "Men's Wear",
-      emoji: '👔',
-      description: 'Sophisticated styles for the modern man',
-      color: 'from-blue-500 to-cyan-500',
+      name: 'Living Room',
+      icon: Sofa,
+      description: 'Comfortable seating and elegant centerpieces',
+      color: 'from-amber-600 to-amber-700',
       items: 45,
     },
     {
-      name: "Women's Wear",
-      emoji: '👗',
-      description: 'Elegant fashion for every occasion',
-      color: 'from-pink-500 to-rose-500',
-      items: 62,
+      name: 'Dining Room',
+      icon: UtensilsCrossed,
+      description: 'Tables and chairs for memorable gatherings',
+      color: 'from-amber-700 to-amber-800',
+      items: 38,
     },
     {
-      name: 'Kids Collection',
-      emoji: '👶',
-      description: 'Comfortable & playful designs',
-      color: 'from-yellow-500 to-orange-500',
-      items: 28,
-    },
-    {
-      name: 'Accessories',
-      emoji: '👜',
-      description: 'Complete your look with style',
-      color: 'from-purple-500 to-indigo-500',
-      items: 34,
-    },
-    {
-      name: 'Footwear',
-      emoji: '👟',
-      description: 'Step out in confidence',
-      color: 'from-green-500 to-emerald-500',
-      items: 41,
-    },
-    {
-      name: 'Winter Collection',
-      emoji: '🧥',
-      description: 'Stay warm, look cool',
-      color: 'from-slate-500 to-zinc-600',
-      items: 37,
-    },
-    {
-      name: 'Summer Collection',
-      emoji: '☀️',
-      description: 'Light & breezy styles',
-      color: 'from-amber-400 to-yellow-400',
+      name: 'Bedroom',
+      icon: Bed,
+      description: 'Restful furniture for your personal sanctuary',
+      color: 'from-amber-800 to-amber-900',
       items: 52,
     },
     {
-      name: 'Formal Wear',
-      emoji: '🎩',
-      description: 'Professional & polished',
-      color: 'from-gray-700 to-slate-800',
+      name: 'Office',
+      icon: Briefcase,
+      description: 'Professional desks and ergonomic seating',
+      color: 'from-yellow-700 to-amber-700',
+      items: 34,
+    },
+    {
+      name: 'Storage & Cabinets',
+      icon: Shield,
+      description: 'Wardrobes, cupboards, and shelving solutions',
+      color: 'from-amber-700 to-yellow-800',
+      items: 41,
+    },
+    {
+      name: 'Study & Library',
+      icon: BookOpen,
+      description: 'Bookcases and reading furniture',
+      color: 'from-yellow-800 to-amber-800',
       items: 29,
     },
     {
-      name: 'Casual Wear',
-      emoji: '👕',
-      description: 'Everyday comfort meets style',
-      color: 'from-teal-500 to-cyan-500',
-      items: 56,
+      name: 'Accent Furniture',
+      icon: Lamp,
+      description: 'Side tables, consoles, and decorative pieces',
+      color: 'from-amber-600 to-yellow-700',
+      items: 37,
     },
     {
-      name: 'Sports Wear',
-      emoji: '⚽',
-      description: 'Performance meets fashion',
-      color: 'from-red-500 to-pink-500',
-      items: 38,
+      name: 'Lounge Chairs',
+      icon: Armchair,
+      description: 'Luxury seating for relaxation',
+      color: 'from-yellow-700 to-amber-600',
+      items: 28,
+    },
+    {
+      name: 'Outdoor',
+      icon: Home,
+      description: 'Weather-resistant patio and garden furniture',
+      color: 'from-amber-700 to-amber-800',
+      items: 25,
     },
   ];
 
@@ -84,13 +78,13 @@ export const Collections = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl sm:text-6xl font-black text-white mb-4">
-            Our Collections
+          <h1 className="text-5xl sm:text-6xl heading-serif font-bold mb-4" style={{ color: '#2c1810' }}>
+            Furniture Collections
           </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Explore our curated collections designed for every style and occasion
+          <p className="text-xl body-sans max-w-2xl mx-auto" style={{ color: '#6d4c28', opacity: 0.8 }}>
+            Discover handcrafted furniture pieces curated for every room in your home
           </p>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full mt-6" />
+          <div className="divider-wood mt-6" />
         </motion.div>
 
         {/* Collections Grid */}
@@ -108,27 +102,31 @@ export const Collections = () => {
               <div className="relative">
                 {/* Gradient Overlay */}
                 <div
-                  className={`absolute inset-0 bg-gradient-to-br ${collection.color} opacity-10 group-hover:opacity-20 transition-opacity duration-300`}
+                  className={`absolute inset-0 bg-gradient-to-br ${collection.color} opacity-5 group-hover:opacity-10 transition-opacity duration-300`}
                 />
 
                 {/* Content */}
                 <div className="relative p-8 text-center">
                   <motion.div
-                    whileHover={{ scale: 1.2, rotate: 10 }}
+                    whileHover={{ scale: 1.15, rotate: 5 }}
                     transition={{ type: 'spring', stiffness: 300 }}
-                    className="text-7xl mb-6"
+                    className="mb-6 flex justify-center"
                   >
-                    {collection.emoji}
+                    <div className={`bg-gradient-to-r ${collection.color} w-20 h-20 rounded-2xl flex items-center justify-center glow-wood`}>
+                      <collection.icon size={36} className="text-white" />
+                    </div>
                   </motion.div>
 
-                  <h3 className="text-white text-2xl font-bold mb-3">
+                  <h3 className="heading-serif text-2xl font-bold mb-3" style={{ color: '#2c1810' }}>
                     {collection.name}
                   </h3>
 
-                  <p className="text-white/70 mb-4">{collection.description}</p>
+                  <p className="body-sans mb-4" style={{ color: '#6d4c28', opacity: 0.8 }}>
+                    {collection.description}
+                  </p>
 
                   <div className="flex items-center justify-center space-x-2 mb-6">
-                    <span className="text-white/50 text-sm">
+                    <span className="body-sans text-sm" style={{ color: '#8b5a2b' }}>
                       {collection.items} items
                     </span>
                   </div>

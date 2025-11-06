@@ -1,12 +1,12 @@
 import { motion } from 'framer-motion';
-import { Heart, Users, Sparkles, Award } from 'lucide-react';
+import { Heart, Users, Hammer, Award, Leaf, Trophy } from 'lucide-react';
 
 export const About = () => {
   const stats = [
-    { label: 'Happy Customers', value: '10K+', icon: Users },
-    { label: 'Products', value: '500+', icon: Sparkles },
-    { label: 'Years of Service', value: '5+', icon: Award },
-    { label: 'Customer Satisfaction', value: '98%', icon: Heart },
+    { label: 'Happy Customers', value: '25K+', icon: Users },
+    { label: 'Handcrafted Pieces', value: '350+', icon: Hammer },
+    { label: 'Years of Excellence', value: '40+', icon: Award },
+    { label: 'Customer Satisfaction', value: '99%', icon: Heart },
   ];
 
   return (
@@ -18,13 +18,13 @@ export const About = () => {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl sm:text-6xl font-black text-white mb-4">
-            About Devil Shop
+          <h1 className="text-5xl sm:text-6xl heading-serif font-bold mb-4" style={{ color: '#2c1810' }}>
+            About Elandro
           </h1>
-          <p className="text-xl text-white/70 max-w-2xl mx-auto">
-            Your trusted fashion destination since 2019
+          <p className="text-xl body-sans max-w-2xl mx-auto" style={{ color: '#6d4c28', opacity: 0.8 }}>
+            Crafting timeless furniture since 1985
           </p>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full mt-6" />
+          <div className="divider-wood mt-6" />
         </motion.div>
 
         {/* Stats */}
@@ -38,13 +38,13 @@ export const About = () => {
               transition={{ delay: index * 0.1 }}
               className="glass-card text-center"
             >
-              <div className="bg-gradient-to-r from-indigo-500 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 glow-purple">
+              <div className="bg-gradient-to-r from-amber-700 to-amber-800 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 glow-wood">
                 <stat.icon size={28} className="text-white" />
               </div>
-              <div className="text-3xl font-black gradient-text mb-2">
+              <div className="text-3xl heading-serif font-black gradient-text mb-2">
                 {stat.value}
               </div>
-              <div className="text-white/70 text-sm">{stat.label}</div>
+              <div className="body-sans text-sm" style={{ color: '#6d4c28', opacity: 0.7 }}>{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -56,25 +56,27 @@ export const About = () => {
           viewport={{ once: true }}
           className="glass-card mb-12"
         >
-          <h2 className="text-3xl font-bold text-white mb-6">Our Story</h2>
-          <div className="space-y-4 text-white/80 leading-relaxed">
+          <h2 className="text-3xl heading-serif font-bold mb-6" style={{ color: '#2c1810' }}>Our Story</h2>
+          <div className="space-y-4 body-sans leading-relaxed" style={{ color: '#6d4c28', opacity: 0.85 }}>
             <p>
-              Devil Shop was founded in 2019 with a simple mission: to make premium
-              fashion accessible to everyone. What started as a small boutique has
-              grown into a thriving online destination for fashion enthusiasts
-              worldwide.
+              Elandro Furniture was founded in 1985 by master craftsman Eduardo Alonso,
+              with a vision to create furniture that stands the test of time. What began
+              as a small workshop in the heart of the furniture district has blossomed into
+              a renowned destination for discerning homeowners and interior designers worldwide.
             </p>
             <p>
-              We believe that fashion is more than just clothing—it's a form of
-              self-expression, a way to tell your story without saying a word. That's
-              why we curate every piece in our collection with care, ensuring that
-              each item meets our high standards of quality, style, and sustainability.
+              We believe that furniture is more than mere function—it's the foundation of your
+              home's character, the silent witness to life's precious moments, and an investment
+              in quality that spans generations. Each piece we create or curate reflects our
+              unwavering commitment to exceptional craftsmanship, sustainable materials, and
+              timeless design principles.
             </p>
             <p>
-              Our team of fashion experts travels the globe to discover emerging
-              designers and timeless classics, bringing you a diverse range of styles
-              that cater to every taste and occasion. From casual everyday wear to
-              elegant formal attire, we've got you covered.
+              Our team of skilled artisans and designers work with the finest hardwoods, premium
+              fabrics, and sustainable materials sourced from certified forests. Every joint is
+              precision-crafted, every finish hand-applied, and every detail considered with care.
+              From contemporary minimalism to classic elegance, we offer furniture that transforms
+              houses into homes and spaces into sanctuaries.
             </p>
           </div>
         </motion.div>
@@ -86,46 +88,46 @@ export const About = () => {
           viewport={{ once: true }}
           className="glass-card"
         >
-          <h2 className="text-3xl font-bold text-white mb-6">Our Values</h2>
+          <h2 className="text-3xl heading-serif font-bold mb-6" style={{ color: '#2c1810' }}>Our Values</h2>
           <div className="grid md:grid-cols-2 gap-6">
             <div>
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center space-x-2">
-                <Sparkles className="text-indigo-400" size={24} />
-                <span>Quality First</span>
+              <h3 className="text-xl heading-serif font-bold mb-3 flex items-center space-x-2" style={{ color: '#2c1810' }}>
+                <Hammer style={{ color: '#8b5a2b' }} size={24} />
+                <span>Master Craftsmanship</span>
               </h3>
-              <p className="text-white/70">
-                We never compromise on quality. Every product is carefully selected
-                and inspected to ensure it meets our rigorous standards.
+              <p className="body-sans" style={{ color: '#6d4c28', opacity: 0.8 }}>
+                Every piece is handcrafted by skilled artisans using traditional techniques
+                passed down through generations, ensuring unparalleled quality and attention to detail.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center space-x-2">
-                <Users className="text-purple-400" size={24} />
-                <span>Customer Focus</span>
+              <h3 className="text-xl heading-serif font-bold mb-3 flex items-center space-x-2" style={{ color: '#2c1810' }}>
+                <Users style={{ color: '#a0714d' }} size={24} />
+                <span>Customer Dedication</span>
               </h3>
-              <p className="text-white/70">
-                Your satisfaction is our priority. We're committed to providing
-                exceptional service and support at every step of your journey.
+              <p className="body-sans" style={{ color: '#6d4c28', opacity: 0.8 }}>
+                Your vision becomes our mission. From consultation to delivery and beyond,
+                we provide white-glove service and lifetime support for all our furniture.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center space-x-2">
-                <Heart className="text-pink-400" size={24} />
+              <h3 className="text-xl heading-serif font-bold mb-3 flex items-center space-x-2" style={{ color: '#2c1810' }}>
+                <Leaf style={{ color: '#8b5a2b' }} size={24} />
                 <span>Sustainability</span>
               </h3>
-              <p className="text-white/70">
-                We're dedicated to sustainable fashion practices, partnering with
-                eco-conscious brands and minimizing our environmental impact.
+              <p className="body-sans" style={{ color: '#6d4c28', opacity: 0.8 }}>
+                We source only from FSC-certified forests and use eco-friendly finishes.
+                Our commitment to the environment ensures furniture that's beautiful inside and out.
               </p>
             </div>
             <div>
-              <h3 className="text-xl font-bold text-white mb-3 flex items-center space-x-2">
-                <Award className="text-yellow-400" size={24} />
-                <span>Innovation</span>
+              <h3 className="text-xl heading-serif font-bold mb-3 flex items-center space-x-2" style={{ color: '#2c1810' }}>
+                <Trophy style={{ color: '#a0714d' }} size={24} />
+                <span>Timeless Design</span>
               </h3>
-              <p className="text-white/70">
-                We stay ahead of trends and continuously improve our platform to
-                provide you with the best shopping experience.
+              <p className="body-sans" style={{ color: '#6d4c28', opacity: 0.8 }}>
+                We create pieces that transcend trends, combining classic elegance with
+                contemporary functionality to deliver furniture that remains relevant for decades.
               </p>
             </div>
           </div>

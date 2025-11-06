@@ -1,12 +1,22 @@
-import { ShoppingCart, Search, User, Menu, X } from 'lucide-react';
+import { ShoppingCart, Search, User, Menu, X, Moon, Sun } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCartStore } from '../../store/cartStore';
+import { useThemeStore } from '../../store/themeStore';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const totalItems = useCartStore((state) => state.getTotalItems());
+  const { isDarkMode, toggleTheme } = useThemeStore();
+
+  useEffect(() => {
+    if (isDarkMode) {
+      document.documentElement.classList.add('dark-mode');
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
 
   const navLinks = [
     { name: 'Home', path: '/' },
@@ -99,6 +109,45 @@ export const Navbar = () => {
               style={{ color: '#6d4c28' }}
             >
               <User size={20} />
+            </motion.button>
+
+            {/* Dark Mode Toggle */}
+            <motion.button
+              whileHover={{ scale: 1.1, rotate: 180 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={toggleTheme}
+              className="transition-all duration-300 rounded-full p-2"
+              style={{
+                background: isDarkMode
+                  ? 'linear-gradient(135deg, #8b5a2b, #a0714d)'
+                  : 'rgba(139, 90, 43, 0.1)',
+                color: isDarkMode ? 'white' : '#6d4c28',
+              }}
+              aria-label="Toggle dark mode"
+            >
+              <AnimatePresence mode="wait">
+                {isDarkMode ? (
+                  <motion.div
+                    key="sun"
+                    initial={{ rotate: -180, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: 180, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Sun size={18} />
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="moon"
+                    initial={{ rotate: 180, opacity: 0 }}
+                    animate={{ rotate: 0, opacity: 1 }}
+                    exit={{ rotate: -180, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <Moon size={18} />
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </motion.button>
 
             {/* Mobile Menu Button */}

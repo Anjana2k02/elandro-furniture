@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowRight, Sparkles, Shield, Truck, Zap } from 'lucide-react';
+import { ArrowRight, Armchair, Shield, Truck, Award, Leaf, Hammer, Crown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ProductCard } from '../components/ui/ProductCard';
 import { products } from '../data/products';
@@ -10,62 +10,63 @@ export const Home = () => {
   const features = [
     {
       icon: Truck,
-      title: 'Free Shipping',
-      description: 'On orders over $100',
+      title: 'Free Delivery',
+      description: 'On all furniture orders',
     },
     {
-      icon: Shield,
-      title: 'Secure Payment',
-      description: '100% secure transactions',
+      icon: Hammer,
+      title: 'Handcrafted',
+      description: 'Artisan quality pieces',
     },
     {
-      icon: Zap,
-      title: 'Fast Delivery',
-      description: '2-3 business days',
+      icon: Leaf,
+      title: 'Sustainable',
+      description: 'Eco-friendly materials',
     },
     {
-      icon: Sparkles,
+      icon: Award,
       title: 'Premium Quality',
-      description: 'Curated fashion pieces',
+      description: 'Built to last generations',
     },
   ];
 
   const collections = [
-    { name: "Men's Wear", emoji: '👔', color: 'from-blue-500 to-cyan-500' },
-    { name: "Women's Wear", emoji: '👗', color: 'from-pink-500 to-rose-500' },
-    { name: 'Accessories', emoji: '👜', color: 'from-purple-500 to-indigo-500' },
-    { name: 'Footwear', emoji: '👟', color: 'from-green-500 to-emerald-500' },
+    { name: 'Living Room', icon: Armchair, color: 'from-amber-600 to-amber-700' },
+    { name: 'Dining Room', icon: Crown, color: 'from-amber-700 to-amber-800' },
+    { name: 'Bedroom', icon: Shield, color: 'from-amber-800 to-amber-900' },
+    { name: 'Office', icon: Award, color: 'from-yellow-700 to-amber-700' },
   ];
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <motion.div
-            animate={{
-              scale: [1, 1.2, 1],
-              rotate: [0, 90, 0],
+        {/* Background Image with Overlay */}
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage: 'url(https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1920&q=80)',
+              filter: 'brightness(0.4)',
             }}
-            transition={{
-              duration: 20,
-              repeat: Infinity,
-              ease: 'linear',
-            }}
-            className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 rounded-full blur-3xl"
           />
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-transparent" />
+
+          {/* Animated Wood Grain Pattern */}
           <motion.div
             animate={{
-              scale: [1.2, 1, 1.2],
-              rotate: [90, 0, 90],
+              opacity: [0.03, 0.08, 0.03],
             }}
             transition={{
-              duration: 15,
+              duration: 8,
               repeat: Infinity,
-              ease: 'linear',
+              ease: 'easeInOut',
             }}
-            className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-pink-500/20 to-purple-500/20 rounded-full blur-3xl"
+            className="absolute inset-0"
+            style={{
+              backgroundImage: 'repeating-linear-gradient(90deg, rgba(139, 90, 43, 0.1) 0px, transparent 2px, transparent 4px, rgba(139, 90, 43, 0.1) 6px)',
+            }}
           />
         </div>
 
@@ -76,41 +77,80 @@ export const Home = () => {
             transition={{ duration: 0.8 }}
             className="space-y-8"
           >
+            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2 }}
-              className="inline-block glass px-6 py-3 rounded-full text-white/90 font-medium mb-6"
+              className="inline-block glass-dark px-8 py-4 rounded-2xl mb-6"
+              style={{
+                border: '1px solid rgba(139, 90, 43, 0.3)',
+                background: 'rgba(44, 24, 16, 0.4)',
+                backdropFilter: 'blur(20px)',
+              }}
             >
-              <span className="flex items-center space-x-2">
-                <Sparkles size={18} className="animate-pulse" />
-                <span>New Season Collection 2024</span>
+              <span className="flex items-center space-x-2 body-sans font-semibold" style={{ color: '#d4c4b0' }}>
+                <Leaf size={20} className="animate-pulse" style={{ color: '#a0714d' }} />
+                <span>Handcrafted Excellence Since 1985</span>
               </span>
             </motion.div>
 
-            <h1 className="text-5xl sm:text-6xl lg:text-8xl font-black text-white text-shadow-lg leading-tight">
-              Welcome to
-              <span className="block gradient-text mt-2">Elandro</span>
+            {/* Main Heading */}
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl heading-serif font-bold leading-tight">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+                className="block"
+                style={{ color: '#f5f1ea' }}
+              >
+                Timeless Elegance
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+                className="block gradient-text mt-4 text-6xl sm:text-7xl lg:text-8xl"
+              >
+                ELANDRO
+              </motion.span>
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="block mt-4 text-3xl sm:text-4xl lg:text-5xl"
+                style={{ color: '#d4c4b0' }}
+              >
+                Fine Furniture
+              </motion.span>
             </h1>
 
-            <p className="text-xl sm:text-2xl text-white/80 max-w-2xl mx-auto font-light">
-              Your one-stop destination for premium fashion & style
-            </p>
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="text-xl sm:text-2xl max-w-3xl mx-auto body-sans font-light leading-relaxed"
+              style={{ color: '#b8a896' }}
+            >
+              Where craftsmanship meets modern design. Discover furniture pieces that transform your space into a sanctuary of style and comfort.
+            </motion.p>
 
+            {/* CTA Buttons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
+              transition={{ delay: 0.7 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-6 pt-8"
             >
               <Link to="/shop">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-primary flex items-center space-x-2 glow-purple"
+                  className="btn-primary flex items-center space-x-2 glow-wood text-lg px-10 py-4"
                 >
-                  <span>Shop Now</span>
-                  <ArrowRight size={20} />
+                  <span>Explore Collection</span>
+                  <ArrowRight size={22} />
                 </motion.button>
               </Link>
 
@@ -118,23 +158,33 @@ export const Home = () => {
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-secondary"
+                  className="btn-secondary text-lg px-10 py-4"
+                  style={{ borderColor: '#a0714d', color: '#f5f1ea' }}
                 >
                   View Collections
                 </motion.button>
               </Link>
             </motion.div>
 
-            {/* Promo Banner */}
+            {/* Trust Indicators */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="glass px-8 py-4 rounded-full inline-block mt-12"
+              transition={{ delay: 0.8 }}
+              className="flex flex-wrap items-center justify-center gap-8 pt-12"
             >
-              <p className="text-white font-semibold text-lg">
-                Special Offer: Up to 50% OFF on Selected Items!
-              </p>
+              <div className="flex items-center space-x-2">
+                <Award size={24} style={{ color: '#a0714d' }} />
+                <span className="body-sans font-semibold" style={{ color: '#d4c4b0' }}>Award Winning Design</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Leaf size={24} style={{ color: '#a0714d' }} />
+                <span className="body-sans font-semibold" style={{ color: '#d4c4b0' }}>Sustainable Materials</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <Hammer size={24} style={{ color: '#a0714d' }} />
+                <span className="body-sans font-semibold" style={{ color: '#d4c4b0' }}>Handcrafted Quality</span>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -145,11 +195,12 @@ export const Home = () => {
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
         >
-          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex items-start justify-center p-2">
+          <div className="w-6 h-10 border-2 rounded-full flex items-start justify-center p-2" style={{ borderColor: 'rgba(160, 113, 77, 0.5)' }}>
             <motion.div
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
-              className="w-1.5 h-1.5 bg-white rounded-full"
+              className="w-1.5 h-1.5 rounded-full"
+              style={{ background: '#a0714d' }}
             />
           </div>
         </motion.div>
@@ -164,10 +215,13 @@ export const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-              Featured Products
+            <h2 className="text-4xl sm:text-5xl heading-serif font-bold mb-4" style={{ color: '#2c1810' }}>
+              Featured Collection
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+            <p className="body-sans text-lg mb-6" style={{ color: '#6d4c28', opacity: 0.8 }}>
+              Handpicked pieces that define exceptional craftsmanship
+            </p>
+            <div className="divider-wood" />
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -204,10 +258,13 @@ export const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-              Our Collections
+            <h2 className="text-4xl sm:text-5xl heading-serif font-bold mb-4" style={{ color: '#2c1810' }}>
+              Shop by Room
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-pink-500 to-purple-500 mx-auto rounded-full" />
+            <p className="body-sans text-lg mb-6" style={{ color: '#6d4c28', opacity: 0.8 }}>
+              Find the perfect pieces for every space in your home
+            </p>
+            <div className="divider-wood" />
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -218,16 +275,23 @@ export const Home = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                whileHover={{ scale: 1.05 }}
-                className="glass-card text-center cursor-pointer group"
+                whileHover={{ y: -8 }}
+                className="glass-card text-center cursor-pointer group relative overflow-hidden"
               >
-                <div className="text-6xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {collection.emoji}
+                {/* Icon */}
+                <div className="mb-6 flex justify-center">
+                  <div className={`bg-gradient-to-r ${collection.color} w-20 h-20 rounded-2xl flex items-center justify-center glow-wood group-hover:scale-110 transition-transform duration-300`}>
+                    <collection.icon size={36} className="text-white" />
+                  </div>
                 </div>
-                <h3 className="text-white text-xl font-bold mb-2">
+                {/* Title */}
+                <h3 className="heading-serif text-2xl font-bold mb-3" style={{ color: '#2c1810' }}>
                   {collection.name}
                 </h3>
+                {/* Divider */}
                 <div className={`w-16 h-1 bg-gradient-to-r ${collection.color} mx-auto rounded-full`} />
+                {/* Hover Effect */}
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-50/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </motion.div>
             ))}
           </div>
@@ -243,10 +307,13 @@ export const Home = () => {
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl sm:text-5xl font-black text-white mb-4">
-              Why Choose Us?
+            <h2 className="text-4xl sm:text-5xl heading-serif font-bold mb-4" style={{ color: '#2c1810' }}>
+              The Elandro Promise
             </h2>
-            <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto rounded-full" />
+            <p className="body-sans text-lg mb-6" style={{ color: '#6d4c28', opacity: 0.8 }}>
+              Exceptional service and quality in every detail
+            </p>
+            <div className="divider-wood" />
           </motion.div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -260,13 +327,13 @@ export const Home = () => {
                 whileHover={{ y: -10 }}
                 className="glass-card text-center"
               >
-                <div className="bg-gradient-to-r from-indigo-500 to-purple-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-purple">
+                <div className="bg-gradient-to-r from-amber-700 to-amber-800 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6 glow-wood">
                   <feature.icon size={32} className="text-white" />
                 </div>
-                <h3 className="text-white text-xl font-bold mb-2">
+                <h3 className="heading-serif text-xl font-bold mb-2" style={{ color: '#2c1810' }}>
                   {feature.title}
                 </h3>
-                <p className="text-white/70">{feature.description}</p>
+                <p className="body-sans" style={{ color: '#6d4c28', opacity: 0.7 }}>{feature.description}</p>
               </motion.div>
             ))}
           </div>
